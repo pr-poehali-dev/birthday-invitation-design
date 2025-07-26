@@ -412,7 +412,7 @@ export default function Index() {
             <div className="w-24 h-1 bg-primary mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-1 gap-8 max-w-md mx-auto">
             <Card className="border-primary/20">
               <CardContent className="p-8 text-center">
                 <Icon name="Phone" size={48} className="text-primary mx-auto mb-4" />
@@ -422,14 +422,7 @@ export default function Index() {
               </CardContent>
             </Card>
             
-            <Card className="border-primary/20">
-              <CardContent className="p-8 text-center">
-                <Icon name="Mail" size={48} className="text-primary mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-primary mb-2">Email</h3>
-                <p className="text-lg">birthday@party.ru</p>
-                <p className="text-muted-foreground mt-2">Ответим в течение дня</p>
-              </CardContent>
-            </Card>
+
           </div>
         </div>
       </section>
