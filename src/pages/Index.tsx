@@ -96,7 +96,7 @@ export default function Index() {
             <div className="w-24 h-1 bg-primary mx-auto"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8">
             <Card className="border-primary/20">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-primary">
@@ -127,6 +127,133 @@ export default function Index() {
                 <p className="text-sm text-muted-foreground mt-2">
                   Бесплатная парковка для гостей
                 </p>
+                <div className="mt-4 space-y-2">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => window.open('https://yandex.ru/maps/?text=ул.%20Праздничная%2C%2025%2C%20Москва', '_blank')}
+                    className="w-full text-xs"
+                  >
+                    <Icon name="ExternalLink" size={14} className="mr-2" />
+                    Открыть в Яндекс.Картах
+                  </Button>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    onClick={() => window.open('https://www.google.com/maps/search/ул.+Праздничная,+25,+Москва', '_blank')}
+                    className="w-full text-xs"
+                  >
+                    <Icon name="ExternalLink" size={14} className="mr-2" />
+                    Открыть в Google Maps
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-primary/20">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3 text-primary">
+                  <Icon name="Car" size={24} />
+                  Как добраться
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3 text-sm">
+                  <div>
+                    <p className="font-semibold text-muted-foreground">🚇 Метро:</p>
+                    <p>Станция "Парк Культуры" (5 мин пешком)</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-muted-foreground">🚗 На автомобиле:</p>
+                    <p>Бесплатная охраняемая парковка</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-muted-foreground">🚕 Такси:</p>
+                    <p>Заказ до точки "Ресторан Золотой зал"</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          
+          {/* Interactive Map */}
+          <div className="mt-12">
+            <Card className="border-primary/20 overflow-hidden">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-3 text-primary">
+                  <Icon name="Map" size={24} />
+                  Интерактивная карта
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-0">
+                <div className="relative">
+                  <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A8c3b32a8b53c4e7c7c8a7e8b9c7e8f1a2b3c4d5e6f7g8h9i0j&amp;source=constructor"
+                    width="100%"
+                    height="400"
+                    frameBorder="0"
+                    className="w-full"
+                    title="Карта местоположения ресторана"
+                  ></iframe>
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent pointer-events-none"></div>
+                  
+                  {/* Custom overlay with venue info */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <Card className="bg-white/95 backdrop-blur-sm border-primary/30">
+                      <CardContent className="p-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+                          <div>
+                            <p className="font-semibold text-primary">Ресторан "Золотой зал"</p>
+                            <p className="text-sm text-muted-foreground">ул. Праздничная, 25, Москва</p>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
+                
+                {/* Quick Navigation Buttons */}
+                <div className="p-4 bg-gradient-to-r from-primary/5 to-accent/10">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open('https://taxi.yandex.ru/route?end_lat=55.7558&end_lon=37.6176&end_comment=Ресторан Золотой зал', '_blank')}
+                      className="text-xs"
+                    >
+                      <Icon name="Car" size={14} className="mr-2" />
+                      Вызвать такси
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open('https://yandex.ru/maps/213/moscow/stops/stop__9639579/?ll=37.617687%2C55.755814&z=16', '_blank')}
+                      className="text-xs"
+                    >
+                      <Icon name="Bus" size={14} className="mr-2" />
+                      Транспорт
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => window.open('https://yandex.ru/maps/?text=парковка+ул.+Праздничная+25+Москва', '_blank')}
+                      className="text-xs"
+                    >
+                      <Icon name="ParkingCircle" size={14} className="mr-2" />
+                      Парковка
+                    </Button>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => navigator.clipboard.writeText('ул. Праздничная, 25, Москва')}
+                      className="text-xs"
+                    >
+                      <Icon name="Copy" size={14} className="mr-2" />
+                      Скопировать адрес
+                    </Button>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>
